@@ -11,7 +11,16 @@ spec:
     targetRevision: 1.16.1
     helm:
       releaseName: my-argocd-helm-app
+      version: v3
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd-dev
 
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true

@@ -7,11 +7,11 @@ replicaCount: 1
 name: "my-angular-FE"
 
 image:
-  repository: cicd-with-angular
+  repository: salekin/nginx-halo
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: latest
 
 service:
   type: ClusterIP
-  port: 4200
+  port: 80
 
