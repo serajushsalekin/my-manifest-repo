@@ -4,7 +4,7 @@
 
 replicaCount: 1
 
-name: "my-angular-FE"
+name: my-angular-FE
 
 image:
   repository: salekin/nginx-halo
