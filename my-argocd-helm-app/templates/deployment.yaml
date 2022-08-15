@@ -2,14 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.name }}
-  labels: {{ .Values.name }}
+  labels:
+    app: {{ .Values.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
-    matchLabels: {{ .Values.name }}
+    matchLabels:
+      app: {{ .Values.name }}
   template:
     metadata:
-      labels: {{ .Values.name }}
+      labels:
+        app: {{ .Values.name }}
     spec:
       containers:
         - name: {{ .Values.name }}
@@ -33,13 +36,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.name }}-service
+  name: "{{ .Values.name }}-service"
   labels: {{ .Values.name }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: http-web-svc
       protocol: TCP
       name: http
-  selector: {{ .Values.name }}
+  selector:
+    app.kubernetes.io/name: {{ .Values.name }}
