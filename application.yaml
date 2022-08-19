@@ -8,17 +8,12 @@ spec:
   source:
     repoURL: https://github.com/serajushsalekin/my-manifest-repo.git
     path: my-argocd-helm-app
-    # targetRevision: HEAD
-    # chart: my-argocd-helm-app
     helm:
       valueFiles:
         - values.yaml
-    #   releaseName: my-argocd-helm-app
-    #   version: v3
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd-dev
-
 
   syncPolicy:
     syncOptions:
