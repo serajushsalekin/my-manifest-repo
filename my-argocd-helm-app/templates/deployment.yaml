@@ -37,7 +37,7 @@ metadata:
   name: "{{ .Values.name }}-service"
 spec:
   selector:
-    app.kubernetes.io/name: {{ .Values.name }}
+    app: {{ .Values.name }}
   ports:
     - protocol: TCP
       port: {{ .Values.service.port }}
